@@ -5,7 +5,6 @@ import Loader from './Loader/Loader';
 import Button from './Button/Button';
 import Modal from './Modal/Modal';
 import { fetchImages } from './services/gallery.service.js';
-import './App.css';
 
 export class App extends Component {
   state = {
@@ -29,7 +28,6 @@ export class App extends Component {
     }
   }
 
-  // Асинхронний метод для отримання зображень
   getImages = async () => {
     const { searchQuery, page } = this.state;
     this.setState({ isLoading: true, error: null });
@@ -50,10 +48,9 @@ export class App extends Component {
         totalHits: data.totalHits,
       }));
 
-      // Прокрутка сторінки вниз після завантаження
       if (page > 1) {
         window.scrollBy({
-          top: 500, // Можете налаштувати значення
+          top: 500,
           behavior: 'smooth',
         });
       }
@@ -67,8 +64,8 @@ export class App extends Component {
   handleSearchSubmit = query => {
     this.setState({
       searchQuery: query,
-      page: 1, // Скидаємо сторінку при новому пошуку
-      images: [], // Очищаємо зображення при новому пошуку
+      page: 1,
+      images: [],
       totalHits: 0,
     });
   };
@@ -101,7 +98,18 @@ export class App extends Component {
       images.length > 0 && images.length < totalHits && !isLoading;
 
     return (
-      <div className="App">
+      <div
+        className="App"
+        style={{
+          height: '100vh',
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          fontSize: 40,
+          color: '#010101',
+        }}
+      >
+        React homework template
         <Searchbar onSubmit={this.handleSearchSubmit} />
         {error && (
           <p className="errorMessage">
@@ -126,20 +134,3 @@ export class App extends Component {
 }
 
 export default App;
-
-// export const App = () => {
-//   return (
-//     <div
-//       style={{
-//         height: '100vh',
-//         display: 'flex',
-//         justifyContent: 'center',
-//         alignItems: 'center',
-//         fontSize: 40,
-//         color: '#010101',
-//       }}
-//     >
-//       React homework template
-//     </div>
-//   );
-// };

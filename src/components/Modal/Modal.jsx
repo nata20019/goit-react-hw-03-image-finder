@@ -3,7 +3,7 @@ import { createPortal } from 'react-dom';
 import PropTypes from 'prop-types';
 import './Modal.css';
 
-const modalRoot = document.querySelector('#modal-root'); // Це ID елемента в index.html
+const modalRoot = document.querySelector('#root'); // Це ID елемента в index.html
 
 export class Modal extends Component {
   static propTypes = {

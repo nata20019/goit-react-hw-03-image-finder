@@ -6,7 +6,6 @@ const Loader = () => {
   return (
     <div className="LoaderContainer">
       {' '}
-      {/* Можна додати клас для центрування */}
       <ThreeDots
         visible={true}
         height="80"
